@@ -98,7 +98,8 @@ directories = [node['cassandra']['log_dir'],
                node['cassandra']['root_dir'],
                node['cassandra']['conf_dir']
               ]
-directories += node['cassandra']['data_dir'] # this is an array now
+#directories += node['cassandra']['data_dir'] # this is an array now
+directories = directories + node['cassandra']['data_dir'] 
 directories.each do |dir|
   directory dir do
     owner node['cassandra']['user']
